@@ -37,7 +37,24 @@ for numero_de_intento in range(cantidad_de_intentos):
             # Si tiene exactamente 5 letras se cambia el valor de bandera y se sale del bucle
             bandera = False
 
+    # Creamos una variable que guarda si la respuesta es correcta, parcialmente correcta o incorrecta
+    letras_verificadas = []
 
+    # Empezamos las comparaciones entre la palabra ingresada y la palabra secreta
+    for i in range(cantidad_de_letras):
+        if intento[i].upper() == palabra_secreta[i]:
+            letras_verificadas.append("✅") # Si la letra esta en la posicion correcta se agrega verde a letras_verificadas
+        elif intento[i].upper() in palabra_secreta: 
+            letras_verificadas.append("🟨") # Si la respuesta no esta en la posicion correcta, pero la letra existe en la palabra se agrega amarillo a letras_verificadas
+        else:
+            letras_verificadas.append("🟥") # Si la letra no existe en la palabra se agrega rojo a letras_verificadas
+
+    # Se imprime el resultado del intento
+    print(f"La palabra que ingresaste fue '{intento.upper()}' y tus aciertos son --> {''.join(letras_verificadas)}")
+
+
+
+    
 # Si se llega al limite de intentos imprimir un mensaje de que diga perdiste
 else:
     print(f"\nTe quedaste sin intentos. Perdiste --> La palabra era {palabra_secreta}")
