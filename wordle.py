@@ -52,9 +52,11 @@ for numero_de_intento in range(cantidad_de_intentos):
     # Se imprime el resultado del intento
     print(f"La palabra que ingresaste fue '{intento.upper()}' y tus aciertos son --> {''.join(letras_verificadas)}")
 
+    # Verificar si la palabra ingresada es igual a la palabra secreta
+    if intento.upper() == palabra_secreta:
+        print("\nGanaste")
+        break
 
-
-    
 # Si se llega al limite de intentos imprimir un mensaje de que diga perdiste
 else:
     print(f"\nTe quedaste sin intentos. Perdiste --> La palabra era {palabra_secreta}")
